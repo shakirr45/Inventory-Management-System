@@ -30,8 +30,8 @@
                                 <td>{{ $product->detail }}</td>
                                 <td>
                                     <form action="{{ route('products.destroy',$product->id) }}" method="POST">
-                                        <a href="{{ route('products.show', $product->id) }}" class="btn btn-sm btn-outline-danger" title="Show Product">
-                                            <i class="fas fa-eye"></i>
+                                        <a href="{{ route('products.show', $product->id) }}" class="btn btn-sm btn-outline-dark" title="Show Product">
+                                            <i class="fas fa-eye"></i> Show
                                         </a>
                                         @can('product-edit')
                                         <a href="{{ route('products.edit', $product->id) }}" class="btn btn-sm btn-outline-primary">
@@ -48,7 +48,9 @@
                                             </button>
                                         </form>
                                         @endcan
-
+                                        <button type="button" class="btn btn-success swalDefaultSuccess">
+                                            Launch Success Toast
+                                        </button>
 
 
                                     </form>
