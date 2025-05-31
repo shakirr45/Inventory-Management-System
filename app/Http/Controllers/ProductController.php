@@ -28,9 +28,10 @@ class ProductController extends Controller
      */
     public function index(): View
     {
+        $pageTitle = 'All Products';
         $products = Product::latest()->paginate(5);
 
-        return view('products.index', compact('products'))
+        return view('products.index', compact('products', 'pageTitle'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -41,7 +42,8 @@ class ProductController extends Controller
      */
     public function create(): View
     {
-        return view('products.create');
+        $pageTitle = 'Create New Product';
+        return view('products.create',compact('pageTitle'));
     }
 
     /**
@@ -52,6 +54,7 @@ class ProductController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        dd($request->all());
         request()->validate([
             'name' => 'required',
             'detail' => 'required',
