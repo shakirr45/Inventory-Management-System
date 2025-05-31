@@ -37,14 +37,12 @@
                             <!-- Left column: Product Image -->
                             <div class="col-md-4">
                                 <label class="form-label">Product Image</label>
-                                <input 
-                                    type="file" 
-                                    name="image1" 
-                                    class="dropify" 
-                                    data-height="200" 
-                                />
+                                <input
+                                    type="file"
+                                    name="image1"
+                                    class="dropify"
+                                    data-height="200" />
                             </div>
-
                             <!-- Right column: fields -->
                             <div class="col-md-8">
                                 <div class="row mb-3">
@@ -55,8 +53,7 @@
                                             name="name"
                                             class="form-control"
                                             placeholder="Enter product name"
-                                            required
-                                        >
+                                            required>
                                     </div>
                                     <div class="col-md-12">
                                         <label class="form-label">Category</label>
@@ -64,8 +61,7 @@
                                             type="text"
                                             name="category"
                                             class="form-control"
-                                            placeholder="Enter category"
-                                        >
+                                            placeholder="Enter category">
                                     </div>
                                 </div>
 
@@ -76,8 +72,7 @@
                                             type="text"
                                             name="sub_category"
                                             class="form-control"
-                                            placeholder="Enter sub category"
-                                        >
+                                            placeholder="Enter sub category">
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">Brand</label>
@@ -85,8 +80,7 @@
                                             type="text"
                                             name="brand"
                                             class="form-control"
-                                            placeholder="Enter brand"
-                                        >
+                                            placeholder="Enter brand">
                                     </div>
                                 </div>
 
@@ -99,8 +93,7 @@
                                             step="0.01"
                                             name="price"
                                             class="form-control"
-                                            placeholder="Enter price"
-                                        >
+                                            placeholder="Enter price">
                                     </div>
                                     <div class="col-md-6">
                                         <div class="row">
@@ -110,8 +103,7 @@
                                                     type="text"
                                                     name="unit"
                                                     class="form-control"
-                                                    placeholder="Enter unit"
-                                                >
+                                                    placeholder="Enter unit">
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="form-label">Barcode</label>
@@ -119,8 +111,7 @@
                                                     type="text"
                                                     name="barcode"
                                                     class="form-control"
-                                                    placeholder="Enter barcode"
-                                                >
+                                                    placeholder="Enter barcode">
                                             </div>
                                         </div>
                                     </div>
@@ -133,8 +124,7 @@
                                         class="form-control"
                                         name="detail"
                                         rows="4"
-                                        placeholder="Write product details..."
-                                    ></textarea>
+                                        placeholder="Write product details..."></textarea>
                                 </div>
                                 <!-- Submit button -->
                                 <div class="text-end">

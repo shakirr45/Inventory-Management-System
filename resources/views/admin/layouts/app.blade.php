@@ -1,173 +1,175 @@
 <!doctype html>
 <html lang="en" dir="ltr"> <!-- This "app.blade.php" master page is used for all the pages content present in "views/livewire" except "custom" and "switcher" pages -->
-	
+
 <!-- Mirrored from laravel8.spruko.com/noa/index by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 06 May 2023 13:07:10 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+
 <head>
 
-		<!-- META DATA -->
-		<meta charset="UTF-8">
-		<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="description" content="Noa - Laravel Bootstrap 5 Admin & Dashboard Template">
-		<meta name="author" content="Spruko Technologies Private Limited">
-		<meta name="keywords" content="laravel admin template, bootstrap admin template, admin dashboard template, admin dashboard, admin template, admin, bootstrap 5, laravel admin, laravel admin dashboard template, laravel ui template, laravel admin panel, admin panel, laravel admin dashboard, laravel template, admin ui dashboard">
+	<!-- META DATA -->
+	<meta charset="UTF-8">
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Noa - Laravel Bootstrap 5 Admin & Dashboard Template">
+	<meta name="author" content="Spruko Technologies Private Limited">
+	<meta name="keywords" content="laravel admin template, bootstrap admin template, admin dashboard template, admin dashboard, admin template, admin, bootstrap 5, laravel admin, laravel admin dashboard template, laravel ui template, laravel admin panel, admin panel, laravel admin dashboard, laravel template, admin ui dashboard">
 
-        <!-- TITLE -->
-		<title>Noa - Laravel Bootstrap 5 Admin & Dashboard Template</title>
+	<!-- TITLE -->
+	<title>Noa - Laravel Bootstrap 5 Admin & Dashboard Template</title>
 
-        <!-- FAVICON -->
-        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('admin/assets/images/brand/favicon.ico') }}" />
+	<!-- FAVICON -->
+	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('admin/assets/images/brand/favicon.ico') }}" />
 
-        <!-- BOOTSTRAP CSS -->
-        <link id="style" href="{{ asset('admin/assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
+	<!-- BOOTSTRAP CSS -->
+	<link id="style" href="{{ asset('admin/assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
 
-        <!-- STYLE CSS -->
-        <link href="{{ asset('admin/assets/css/style.css') }}" rel="stylesheet" />
-        <link href="{{ asset('admin/assets/css/skin-modes.css') }}" rel="stylesheet" />
+	<!-- STYLE CSS -->
+	<link href="{{ asset('admin/assets/css/style.css') }}" rel="stylesheet" />
+	<link href="{{ asset('admin/assets/css/skin-modes.css') }}" rel="stylesheet" />
 
-        
-        
-        <!--- FONT-ICONS CSS -->
-        <link href="{{ asset('admin/assets/plugins/icons/icons.css') }}" rel="stylesheet" />
 
-        <!-- INTERNAL Switcher css -->
-        <link href="{{ asset('admin/assets/switcher/css/switcher.css') }}" rel="stylesheet">
-        <link href="{{ asset('admin/assets/switcher/demo.css') }}" rel="stylesheet">
-		
-		<!-- Dropify CSS -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropify/dist/css/dropify.min.css" />
-    </head>
 
-    <body class="ltr app sidebar-mini">
+	<!--- FONT-ICONS CSS -->
+	<link href="{{ asset('admin/assets/plugins/icons/icons.css') }}" rel="stylesheet" />
 
-  
-        <!-- GLOBAL-LOADER -->
-        {{-- <div id="global-loader">
+	<!-- INTERNAL Switcher css -->
+	<link href="{{ asset('admin/assets/switcher/css/switcher.css') }}" rel="stylesheet">
+	<link href="{{ asset('admin/assets/switcher/demo.css') }}" rel="stylesheet">
+
+	<!-- Dropify CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropify/dist/css/dropify.min.css" />
+</head>
+
+<body class="ltr app sidebar-mini">
+
+
+	<!-- GLOBAL-LOADER -->
+	{{-- <div id="global-loader">
 			<img src="{{  asset('admin/assets/images/loader.svg') }}" class="loader-img" alt="Loader">
-		</div>--}}
-		<!-- /GLOBAL-LOADER -->
+	</div>--}}
+	<!-- /GLOBAL-LOADER -->
 
-        <!-- PAGE -->
-		<div class="page">
-			<div class="page-main">
+	<!-- PAGE -->
+	<div class="page">
+		<div class="page-main">
 
-                <!-- app-Header -->
-          @include('admin.layouts.header')
-            <!-- /app-Header -->
+			<!-- app-Header -->
+			@include('admin.layouts.header')
+			<!-- /app-Header -->
 
-                <!--APP-SIDEBAR-->
+			<!--APP-SIDEBAR-->
 
-          @include('admin.layouts.side-nav')
+			@include('admin.layouts.side-nav')
 
-            <!--/APP-SIDEBAR-->
+			<!--/APP-SIDEBAR-->
 
-                <!--app-content open-->
-                <div class="app-content main-content mt-0">
-                    <div class="side-app">
+			<!--app-content open-->
+			<div class="app-content main-content mt-0">
+				<div class="side-app">
 
-                        <!-- CONTAINER -->
-                        <div class="main-container container-fluid">
+					<!-- CONTAINER -->
+					<div class="main-container container-fluid">
 
-                        @yield('content')
-                        </div>
-                    </div>
-                </div>
-                    <!-- CONTAINER CLOSED -->
-             </div>
+						@yield('content')
+					</div>
+				</div>
+			</div>
+			<!-- CONTAINER CLOSED -->
+		</div>
 
-            <!-- Country-selector modal-->
-            <div class="modal fade" id="country-selector">
-                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                    <div class="modal-content country-select-modal">
-                        <div class="modal-header">
-                            <h6 class="modal-title">Choose Country</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
-                        </div>
-                        <div class="modal-body">
-                            <ul class="row row-sm p-3">
-                                <li class="col-lg-4 mb-2">
-                                    <a class="btn btn-country btn-lg btn-block active">
-                                        <span class="country-selector"><img alt="unitedstates" src="assets/images/flags/us_flag.jpg" class="me-2 language"></span>United States
-                                    </a>
-                                </li>
-                                <li class="col-lg-4 mb-2">
-                                    <a class="btn btn-country btn-lg btn-block">
-                                        <span class="country-selector"><img alt="italy" src="assets/images/flags/italy_flag.jpg" class="me-2 language"></span>Italy
-                                    </a>
-                                </li>
-                                <li class="col-lg-4 mb-2">
-                                    <a class="btn btn-country btn-lg btn-block">
-                                        <span class="country-selector"><img alt="spain" src="assets/images/flags/spain_flag.jpg" class="me-2 language"></span>Spain
-                                    </a>
-                                </li>
-                                <li class="col-lg-4 mb-2">
-                                    <a class="btn btn-country btn-lg btn-block">
-                                        <span class="country-selector"><img alt="india" src="assets/images/flags/india_flag.jpg" class="me-2 language"></span>India
-                                </a>
-                                </li>
-                                <li class="col-lg-4 mb-2">
-                                    <a class="btn btn-country btn-lg btn-block">
-                                        <span class="country-selector"><img alt="french" src="assets/images/flags/french_flag.jpg" class="me-2 language"></span>French
-                                    </a>
-                                </li>
-                                <li class="col-lg-4 mb-2">
-                                    <a class="btn btn-country btn-lg btn-block">
-                                        <span class="country-selector"><img alt="russia" src="assets/images/flags/russia_flag.jpg" class="me-2 language"></span>Russia
-                                    </a>
-                                </li>
-                                <li class="col-lg-4 mb-2">
-                                    <a class="btn btn-country btn-lg btn-block">
-                                        <span class="country-selector"><img alt="germany" src="assets/images/flags/germany_flag.jpg" class="me-2 language"></span>Germany
-                                    </a>
-                                </li>
-                                <li class="col-lg-4 mb-2">
-                                    <a class="btn btn-country btn-lg btn-block">
-                                        <span class="country-selector"><img alt="argentina" src="assets/images/flags/argentina_flag.jpg" class="me-2 language"></span>Argentina
-                                    </a>
-                                </li>
-                                <li class="col-lg-4 mb-2">
-                                    <a class="btn btn-country btn-lg btn-block">
-                                        <span class="country-selector"><img alt="uae" src="assets/images/flags/uae_flag.jpg" class="me-2 language"></span>UAE
-                                    </a>
-                                </li>
-                                <li class="col-lg-4 mb-2">
-                                    <a class="btn btn-country btn-lg btn-block">
-                                        <span class="country-selector"><img alt="austria" src="assets/images/flags/austria_flag.jpg" class="me-2 language"></span>Austria
-                                    </a>
-                                </li>
-                                <li class="col-lg-4 mb-2">
-                                    <a class="btn btn-country btn-lg btn-block">
-                                        <span class="country-selector"><img alt="mexico" src="assets/images/flags/mexico_flag.jpg" class="me-2 language"></span>Mexico
-                                    </a>
-                                </li>
-                                <li class="col-lg-4 mb-2">
-                                    <a class="btn btn-country btn-lg btn-block">
-                                        <span class="country-selector"><img alt="china" src="assets/images/flags/china_flag.jpg" class="me-2 language"></span>China
-                                </a>
-                                </li>
-                                <li class="col-lg-4 mb-2">
-                                    <a class="btn btn-country btn-lg btn-block">
-                                        <span class="country-selector"><img alt="poland" src="assets/images/flags/poland_flag.jpg" class="me-2 language"></span>Poland
-                                    </a>
-                                </li>
-                                <li class="col-lg-4 mb-2">
-                                    <a class="btn btn-country btn-lg btn-block">
-                                        <span class="country-selector"><img alt="canada" src="assets/images/flags/canada_flag.jpg" class="me-2 language"></span>Canada
-                                    </a>
-                                </li>
-                                <li class="col-lg-4 mb-2">
-                                    <a class="btn btn-country btn-lg btn-block">
-                                        <span class="country-selector"><img alt="malaysia" src="assets/images/flags/malaysia_flag.jpg" class="me-2 language"></span>Malaysia
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /Country-selector modal-->
+		<!-- Country-selector modal-->
+		<div class="modal fade" id="country-selector">
+			<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+				<div class="modal-content country-select-modal">
+					<div class="modal-header">
+						<h6 class="modal-title">Choose Country</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+					</div>
+					<div class="modal-body">
+						<ul class="row row-sm p-3">
+							<li class="col-lg-4 mb-2">
+								<a class="btn btn-country btn-lg btn-block active">
+									<span class="country-selector"><img alt="unitedstates" src="assets/images/flags/us_flag.jpg" class="me-2 language"></span>United States
+								</a>
+							</li>
+							<li class="col-lg-4 mb-2">
+								<a class="btn btn-country btn-lg btn-block">
+									<span class="country-selector"><img alt="italy" src="assets/images/flags/italy_flag.jpg" class="me-2 language"></span>Italy
+								</a>
+							</li>
+							<li class="col-lg-4 mb-2">
+								<a class="btn btn-country btn-lg btn-block">
+									<span class="country-selector"><img alt="spain" src="assets/images/flags/spain_flag.jpg" class="me-2 language"></span>Spain
+								</a>
+							</li>
+							<li class="col-lg-4 mb-2">
+								<a class="btn btn-country btn-lg btn-block">
+									<span class="country-selector"><img alt="india" src="assets/images/flags/india_flag.jpg" class="me-2 language"></span>India
+								</a>
+							</li>
+							<li class="col-lg-4 mb-2">
+								<a class="btn btn-country btn-lg btn-block">
+									<span class="country-selector"><img alt="french" src="assets/images/flags/french_flag.jpg" class="me-2 language"></span>French
+								</a>
+							</li>
+							<li class="col-lg-4 mb-2">
+								<a class="btn btn-country btn-lg btn-block">
+									<span class="country-selector"><img alt="russia" src="assets/images/flags/russia_flag.jpg" class="me-2 language"></span>Russia
+								</a>
+							</li>
+							<li class="col-lg-4 mb-2">
+								<a class="btn btn-country btn-lg btn-block">
+									<span class="country-selector"><img alt="germany" src="assets/images/flags/germany_flag.jpg" class="me-2 language"></span>Germany
+								</a>
+							</li>
+							<li class="col-lg-4 mb-2">
+								<a class="btn btn-country btn-lg btn-block">
+									<span class="country-selector"><img alt="argentina" src="assets/images/flags/argentina_flag.jpg" class="me-2 language"></span>Argentina
+								</a>
+							</li>
+							<li class="col-lg-4 mb-2">
+								<a class="btn btn-country btn-lg btn-block">
+									<span class="country-selector"><img alt="uae" src="assets/images/flags/uae_flag.jpg" class="me-2 language"></span>UAE
+								</a>
+							</li>
+							<li class="col-lg-4 mb-2">
+								<a class="btn btn-country btn-lg btn-block">
+									<span class="country-selector"><img alt="austria" src="assets/images/flags/austria_flag.jpg" class="me-2 language"></span>Austria
+								</a>
+							</li>
+							<li class="col-lg-4 mb-2">
+								<a class="btn btn-country btn-lg btn-block">
+									<span class="country-selector"><img alt="mexico" src="assets/images/flags/mexico_flag.jpg" class="me-2 language"></span>Mexico
+								</a>
+							</li>
+							<li class="col-lg-4 mb-2">
+								<a class="btn btn-country btn-lg btn-block">
+									<span class="country-selector"><img alt="china" src="assets/images/flags/china_flag.jpg" class="me-2 language"></span>China
+								</a>
+							</li>
+							<li class="col-lg-4 mb-2">
+								<a class="btn btn-country btn-lg btn-block">
+									<span class="country-selector"><img alt="poland" src="assets/images/flags/poland_flag.jpg" class="me-2 language"></span>Poland
+								</a>
+							</li>
+							<li class="col-lg-4 mb-2">
+								<a class="btn btn-country btn-lg btn-block">
+									<span class="country-selector"><img alt="canada" src="assets/images/flags/canada_flag.jpg" class="me-2 language"></span>Canada
+								</a>
+							</li>
+							<li class="col-lg-4 mb-2">
+								<a class="btn btn-country btn-lg btn-block">
+									<span class="country-selector"><img alt="malaysia" src="assets/images/flags/malaysia_flag.jpg" class="me-2 language"></span>Malaysia
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /Country-selector modal-->
 
-            
+
 		<!--TASK MODAL-->
 		<div class="modal fade" id="Vertically">
 			<div class="modal-dialog modal-dialog-centered task-view-modal" role="document">
@@ -241,7 +243,9 @@
 									<div class="file-upload-text">
 										<input type="file" id="task-file-input" multiple>
 										<label for="task-file-input" class="text-primary">
-											<svg xmlns="http://www.w3.org/2000/svg" class="w-inner-icn text-primary" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M16,11.5h-3.5V8c0-0.276123-0.223877-0.5-0.5-0.5S11.5,7.723877,11.5,8v3.5H8c-0.276123,0-0.5,0.223877-0.5,0.5s0.223877,0.5,0.5,0.5h3.5v3.5005493C11.5001831,16.2765503,11.723999,16.5001831,12,16.5h0.0006104C12.2765503,16.4998169,12.5001831,16.276001,12.5,16v-3.5H16c0.276123,0,0.5-0.223877,0.5-0.5S16.276123,11.5,16,11.5z M12,2C6.4771729,2,2,6.4771729,2,12s4.4771729,10,10,10c5.5202026-0.0062866,9.9937134-4.4797974,10-10C22,6.4771729,17.5228271,2,12,2z M12,21c-4.9705811,0-9-4.0294189-9-9s4.0294189-9,9-9c4.9682617,0.0056152,8.9943848,4.0317383,9,9C21,16.9705811,16.9705811,21,12,21z"/></svg>
+											<svg xmlns="http://www.w3.org/2000/svg" class="w-inner-icn text-primary" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+												<path d="M16,11.5h-3.5V8c0-0.276123-0.223877-0.5-0.5-0.5S11.5,7.723877,11.5,8v3.5H8c-0.276123,0-0.5,0.223877-0.5,0.5s0.223877,0.5,0.5,0.5h3.5v3.5005493C11.5001831,16.2765503,11.723999,16.5001831,12,16.5h0.0006104C12.2765503,16.4998169,12.5001831,16.276001,12.5,16v-3.5H16c0.276123,0,0.5-0.223877,0.5-0.5S16.276123,11.5,16,11.5z M12,2C6.4771729,2,2,6.4771729,2,12s4.4771729,10,10,10c5.5202026-0.0062866,9.9937134-4.4797974,10-10C22,6.4771729,17.5228271,2,12,2z M12,21c-4.9705811,0-9-4.0294189-9-9s4.0294189-9,9-9c4.9682617,0.0056152,8.9943848,4.0317383,9,9C21,16.9705811,16.9705811,21,12,21z" />
+											</svg>
 											Upload Files
 											<span class="text-muted"></span>
 										</label>
@@ -263,7 +267,10 @@
 												<tr>
 													<td>
 														<div class="recent-files">
-															<svg class="file-manager-icon w-icn me-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#b6dfff" d="M20,8.99969l-7-7H7a3,3,0,0,0-3,3v14a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3Z"/><path fill="#86cbff" d="M20 8.99969H15a2 2 0 0 1-2-2v-5zM19 22a.99974.99974 0 0 1-1-1V19a1 1 0 0 1 2 0v2A.99974.99974 0 0 1 19 22zM19 17a1.03391 1.03391 0 0 1-.71-.29.99108.99108 0 0 1-.21045-1.08984A1.14883 1.14883 0 0 1 18.29 15.29a1.02673 1.02673 0 0 1 .32959-.21.91433.91433 0 0 1 .76025 0 1.03418 1.03418 0 0 1 .33008.21 1.15772 1.15772 0 0 1 .21.33008A.98919.98919 0 0 1 19.71 16.71a1.15384 1.15384 0 0 1-.33008.21A.9994.9994 0 0 1 19 17zM15 18H9a1 1 0 0 1 0-2h6a1 1 0 0 1 0 2zM15 14H9a1 1 0 0 1 0-2h6a1 1 0 0 1 0 2zM10 10H9A1 1 0 0 1 9 8h1a1 1 0 0 1 0 2z"/></svg>
+															<svg class="file-manager-icon w-icn me-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+																<path fill="#b6dfff" d="M20,8.99969l-7-7H7a3,3,0,0,0-3,3v14a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3Z" />
+																<path fill="#86cbff" d="M20 8.99969H15a2 2 0 0 1-2-2v-5zM19 22a.99974.99974 0 0 1-1-1V19a1 1 0 0 1 2 0v2A.99974.99974 0 0 1 19 22zM19 17a1.03391 1.03391 0 0 1-.71-.29.99108.99108 0 0 1-.21045-1.08984A1.14883 1.14883 0 0 1 18.29 15.29a1.02673 1.02673 0 0 1 .32959-.21.91433.91433 0 0 1 .76025 0 1.03418 1.03418 0 0 1 .33008.21 1.15772 1.15772 0 0 1 .21.33008A.98919.98919 0 0 1 19.71 16.71a1.15384 1.15384 0 0 1-.33008.21A.9994.9994 0 0 1 19 17zM15 18H9a1 1 0 0 1 0-2h6a1 1 0 0 1 0 2zM15 14H9a1 1 0 0 1 0-2h6a1 1 0 0 1 0 2zM10 10H9A1 1 0 0 1 9 8h1a1 1 0 0 1 0 2z" />
+															</svg>
 															<span class="mb-1 font-weight-semibold">noa documentation</span>
 														</div>
 													</td>
@@ -280,7 +287,10 @@
 												<tr>
 													<td>
 														<div class="recent-files">
-															<svg class="file-manager-icon w-icn me-2" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path fill="#f2c8db" d="M14,18H5c-1.65611-0.00181-2.99819-1.34389-3-3V9c0.00181-1.65611,1.34389-2.99819,3-3h9c1.65611,0.00181,2.99819,1.34389,3,3v6C16.99819,16.65611,15.65611,17.99819,14,18z"/><path fill="#eaa4c4" d="M21.89465,7.55359c-0.24683-0.49432-0.8476-0.69495-1.34192-0.44812l-3.56421,1.7821C16.98999,8.92572,16.99994,8.96149,17,9v6c-0.00006,0.03851-0.01001,0.07428-0.01147,0.11243l3.56421,1.7821C20.69165,16.96381,20.84479,16.99994,21,17c0.55212-0.00037,0.99969-0.44788,1-1V8C21.99994,7.84503,21.96387,7.6922,21.89465,7.55359z"/></svg>
+															<svg class="file-manager-icon w-icn me-2" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+																<path fill="#f2c8db" d="M14,18H5c-1.65611-0.00181-2.99819-1.34389-3-3V9c0.00181-1.65611,1.34389-2.99819,3-3h9c1.65611,0.00181,2.99819,1.34389,3,3v6C16.99819,16.65611,15.65611,17.99819,14,18z" />
+																<path fill="#eaa4c4" d="M21.89465,7.55359c-0.24683-0.49432-0.8476-0.69495-1.34192-0.44812l-3.56421,1.7821C16.98999,8.92572,16.99994,8.96149,17,9v6c-0.00006,0.03851-0.01001,0.07428-0.01147,0.11243l3.56421,1.7821C20.69165,16.96381,20.84479,16.99994,21,17c0.55212-0.00037,0.99969-0.44788,1-1V8C21.99994,7.84503,21.96387,7.6922,21.89465,7.55359z" />
+															</svg>
 
 															<span class="mb-1 font-weight-semibold">sample video</span>
 														</div>
@@ -298,7 +308,12 @@
 												<tr class="row-last">
 													<td>
 														<div class="recent-files">
-															<svg class="file-manager-icon w-icn me-2"  xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path fill="#c8e4a6" d="M13.5,9C12.67157,9,12,8.32843,12,7.5S12.67157,6,13.5,6S15,6.67157,15,7.5C14.9991,8.32805,14.32805,8.9991,13.5,9z"/><path fill="#add679" d="M19,2H5C3.34515,2.00483,2.00483,3.34515,2,5v8.86l3.88-3.88c1.18747-1.13,3.05253-1.13,4.24,0l2.87139,2.887l0.88752-0.88751c1.17344-1.16662,3.06874-1.16662,4.24218,0L22,15.8584V5C21.99517,3.34515,20.65485,2.00483,19,2z M13.5,9C12.67157,9,12,8.32843,12,7.5S12.67157,6,13.5,6S15,6.67157,15,7.5C14.9991,8.32805,14.32805,8.9991,13.5,9z"/><path fill="#8FBD56" d="M10.12,9.98c-1.18747-1.13-3.05253-1.13-4.24,0L2,13.86V19c0.00484,1.65484,1.34516,2.99516,3,3h14c0.81512-0.00034,1.59497-0.3325,2.16-0.92L10.12,9.98z"/><path fill="#c8e4a6" d="M22,15.8584l-3.87891-3.87891c-1.17345-1.1666-3.06873-1.1666-4.24218,0L12.99139,12.867l8.16425,8.20856C21.69776,20.5208,22.00089,19.77567,22,19V15.8584z"/></svg>
+															<svg class="file-manager-icon w-icn me-2" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+																<path fill="#c8e4a6" d="M13.5,9C12.67157,9,12,8.32843,12,7.5S12.67157,6,13.5,6S15,6.67157,15,7.5C14.9991,8.32805,14.32805,8.9991,13.5,9z" />
+																<path fill="#add679" d="M19,2H5C3.34515,2.00483,2.00483,3.34515,2,5v8.86l3.88-3.88c1.18747-1.13,3.05253-1.13,4.24,0l2.87139,2.887l0.88752-0.88751c1.17344-1.16662,3.06874-1.16662,4.24218,0L22,15.8584V5C21.99517,3.34515,20.65485,2.00483,19,2z M13.5,9C12.67157,9,12,8.32843,12,7.5S12.67157,6,13.5,6S15,6.67157,15,7.5C14.9991,8.32805,14.32805,8.9991,13.5,9z" />
+																<path fill="#8FBD56" d="M10.12,9.98c-1.18747-1.13-3.05253-1.13-4.24,0L2,13.86V19c0.00484,1.65484,1.34516,2.99516,3,3h14c0.81512-0.00034,1.59497-0.3325,2.16-0.92L10.12,9.98z" />
+																<path fill="#c8e4a6" d="M22,15.8584l-3.87891-3.87891c-1.17345-1.1666-3.06873-1.1666-4.24218,0L12.99139,12.867l8.16425,8.20856C21.69776,20.5208,22.00089,19.77567,22,19V15.8584z" />
+															</svg>
 															<span class="mb-1 font-weight-semibold">sample image</span>
 														</div>
 													</td>
@@ -324,11 +339,15 @@
 										<div class="d-flex add-task-container">
 											<input type="text" class="form-control wp-40 subtask-input" placeholder="Type Task Here..." id="subTaskInput">
 											<a href="javascript:void(0)" role="button" class="text-teritary text-center ms-2 me-2" id="addTask">
-												<svg xmlns="http://www.w3.org/2000/svg" class="w-inner-icn text-teritary" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M16,11.5h-3.5V8c0-0.276123-0.223877-0.5-0.5-0.5S11.5,7.723877,11.5,8v3.5H8c-0.276123,0-0.5,0.223877-0.5,0.5s0.223877,0.5,0.5,0.5h3.5v3.5005493C11.5001831,16.2765503,11.723999,16.5001831,12,16.5h0.0006104C12.2765503,16.4998169,12.5001831,16.276001,12.5,16v-3.5H16c0.276123,0,0.5-0.223877,0.5-0.5S16.276123,11.5,16,11.5z M12,2C6.4771729,2,2,6.4771729,2,12s4.4771729,10,10,10c5.5202026-0.0062866,9.9937134-4.4797974,10-10C22,6.4771729,17.5228271,2,12,2z M12,21c-4.9705811,0-9-4.0294189-9-9s4.0294189-9,9-9c4.9682617,0.0056152,8.9943848,4.0317383,9,9C21,16.9705811,16.9705811,21,12,21z"/></svg>
+												<svg xmlns="http://www.w3.org/2000/svg" class="w-inner-icn text-teritary" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+													<path d="M16,11.5h-3.5V8c0-0.276123-0.223877-0.5-0.5-0.5S11.5,7.723877,11.5,8v3.5H8c-0.276123,0-0.5,0.223877-0.5,0.5s0.223877,0.5,0.5,0.5h3.5v3.5005493C11.5001831,16.2765503,11.723999,16.5001831,12,16.5h0.0006104C12.2765503,16.4998169,12.5001831,16.276001,12.5,16v-3.5H16c0.276123,0,0.5-0.223877,0.5-0.5S16.276123,11.5,16,11.5z M12,2C6.4771729,2,2,6.4771729,2,12s4.4771729,10,10,10c5.5202026-0.0062866,9.9937134-4.4797974,10-10C22,6.4771729,17.5228271,2,12,2z M12,21c-4.9705811,0-9-4.0294189-9-9s4.0294189-9,9-9c4.9682617,0.0056152,8.9943848,4.0317383,9,9C21,16.9705811,16.9705811,21,12,21z" />
+												</svg>
 												Add
 											</a>
 											<a href="javascript:void(0)" role="button" class="text-primary text-center ms-2" id="completedAll">
-												<svg xmlns="http://www.w3.org/2000/svg" class="w-inner-icn text-primary" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M15.8085327,8.6464844l-5.6464233,5.6464844l-2.4707031-2.4697266c-0.0023804-0.0023804-0.0047607-0.0047607-0.0072021-0.0071411c-0.1972046-0.1932373-0.5137329-0.1900635-0.7069702,0.0071411c-0.1932983,0.1972656-0.1900635,0.5137939,0.0071411,0.7070312l2.8242188,2.8232422C9.9022217,15.4474487,10.02948,15.5001831,10.1621094,15.5c0.1326294,0.0001221,0.2598267-0.0525513,0.3534546-0.1464844l6-6c0.0023804-0.0023804,0.0047607-0.0046997,0.0071411-0.0071411c0.1932373-0.1972046,0.1900635-0.5137329-0.0071411-0.7069702C16.3183594,8.446106,16.0018311,8.4493408,15.8085327,8.6464844z M12,2C6.4771729,2,2,6.4771729,2,12s4.4771729,10,10,10c5.5201416-0.0064697,9.9935303-4.4798584,10-10C22,6.4771729,17.5228271,2,12,2z M12,21c-4.9705811,0-9-4.0294189-9-9s4.0294189-9,9-9c4.9683228,0.0054321,8.9945679,4.0316772,9,9C21,16.9705811,16.9705811,21,12,21z"/></svg>
+												<svg xmlns="http://www.w3.org/2000/svg" class="w-inner-icn text-primary" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+													<path d="M15.8085327,8.6464844l-5.6464233,5.6464844l-2.4707031-2.4697266c-0.0023804-0.0023804-0.0047607-0.0047607-0.0072021-0.0071411c-0.1972046-0.1932373-0.5137329-0.1900635-0.7069702,0.0071411c-0.1932983,0.1972656-0.1900635,0.5137939,0.0071411,0.7070312l2.8242188,2.8232422C9.9022217,15.4474487,10.02948,15.5001831,10.1621094,15.5c0.1326294,0.0001221,0.2598267-0.0525513,0.3534546-0.1464844l6-6c0.0023804-0.0023804,0.0047607-0.0046997,0.0071411-0.0071411c0.1932373-0.1972046,0.1900635-0.5137329-0.0071411-0.7069702C16.3183594,8.446106,16.0018311,8.4493408,15.8085327,8.6464844z M12,2C6.4771729,2,2,6.4771729,2,12s4.4771729,10,10,10c5.5201416-0.0064697,9.9935303-4.4798584,10-10C22,6.4771729,17.5228271,2,12,2z M12,21c-4.9705811,0-9-4.0294189-9-9s4.0294189-9,9-9c4.9683228,0.0054321,8.9945679,4.0316772,9,9C21,16.9705811,16.9705811,21,12,21z" />
+												</svg>
 												Mark All
 											</a>
 										</div>
@@ -365,7 +384,9 @@
 								<div class="row">
 									<div class="col-md-12 text-end mt-3">
 										<a href="javascript:void(0)" role="button" class="text-danger" id="deleteAllTasks">
-											<svg xmlns="http://www.w3.org/2000/svg" class="w-inner-icn text-danger" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M16,11.5h-3.5V8c0-0.276123-0.223877-0.5-0.5-0.5S11.5,7.723877,11.5,8v3.5H8c-0.276123,0-0.5,0.223877-0.5,0.5s0.223877,0.5,0.5,0.5h3.5v3.5005493C11.5001831,16.2765503,11.723999,16.5001831,12,16.5h0.0006104C12.2765503,16.4998169,12.5001831,16.276001,12.5,16v-3.5H16c0.276123,0,0.5-0.223877,0.5-0.5S16.276123,11.5,16,11.5z M12,2C6.4771729,2,2,6.4771729,2,12s4.4771729,10,10,10c5.5202026-0.0062866,9.9937134-4.4797974,10-10C22,6.4771729,17.5228271,2,12,2z M12,21c-4.9705811,0-9-4.0294189-9-9s4.0294189-9,9-9c4.9682617,0.0056152,8.9943848,4.0317383,9,9C21,16.9705811,16.9705811,21,12,21z"/></svg>
+											<svg xmlns="http://www.w3.org/2000/svg" class="w-inner-icn text-danger" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+												<path d="M16,11.5h-3.5V8c0-0.276123-0.223877-0.5-0.5-0.5S11.5,7.723877,11.5,8v3.5H8c-0.276123,0-0.5,0.223877-0.5,0.5s0.223877,0.5,0.5,0.5h3.5v3.5005493C11.5001831,16.2765503,11.723999,16.5001831,12,16.5h0.0006104C12.2765503,16.4998169,12.5001831,16.276001,12.5,16v-3.5H16c0.276123,0,0.5-0.223877,0.5-0.5S16.276123,11.5,16,11.5z M12,2C6.4771729,2,2,6.4771729,2,12s4.4771729,10,10,10c5.5202026-0.0062866,9.9937134-4.4797974,10-10C22,6.4771729,17.5228271,2,12,2z M12,21c-4.9705811,0-9-4.0294189-9-9s4.0294189-9,9-9c4.9682617,0.0056152,8.9943848,4.0317383,9,9C21,16.9705811,16.9705811,21,12,21z" />
+											</svg>
 											Delete All
 										</a>
 									</div>
@@ -522,87 +543,87 @@
 			</div>
 		</div><!--TASK MODAL ENDS-->
 
-        
-            <!-- FOOTER -->
-             @include('admin.layouts.footer')
-            <!-- FOOTER CLOSED -->
 
-        </div>
-        <!-- page -->
+		<!-- FOOTER -->
+		@include('admin.layouts.footer')
+		<!-- FOOTER CLOSED -->
 
-        <!-- BACK-TO-TOP -->
-        <a href="#top" id="back-to-top"><i class="fa fa-long-arrow-up"></i></a>
+	</div>
+	<!-- page -->
 
-        <!-- JQUERY JS -->
-        <script src="{{ asset('admin/assets/plugins/jquery/jquery.min.js') }}"></script>
+	<!-- BACK-TO-TOP -->
+	<a href="#top" id="back-to-top"><i class="fa fa-long-arrow-up"></i></a>
 
-        <!-- BOOTSTRAP JS -->
-        <script src="{{ asset('admin/assets/plugins/bootstrap/js/popper.min.js') }}"></script>
-        <script src="{{ asset('admin/assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+	<!-- JQUERY JS -->
+	<script src="{{ asset('admin/assets/plugins/jquery/jquery.min.js') }}"></script>
 
-        <!-- SIDE-MENU JS -->
-        <script src="{{ asset('admin/assets/plugins/sidemenu/sidemenu.js') }}"></script>
+	<!-- BOOTSTRAP JS -->
+	<script src="{{ asset('admin/assets/plugins/bootstrap/js/popper.min.js') }}"></script>
+	<script src="{{ asset('admin/assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
 
-        <!-- Perfect SCROLLBAR JS-->
-        <script src="{{ asset('admin/assets/plugins/p-scroll/perfect-scrollbar.js') }}"></script>
-        <script src="{{ asset('admin/assets/plugins/p-scroll/pscroll.js') }}"></script>
+	<!-- SIDE-MENU JS -->
+	<script src="{{ asset('admin/assets/plugins/sidemenu/sidemenu.js') }}"></script>
 
-        <!-- STICKY JS -->
-        <script src="{{ asset('admin/assets/js/sticky.js') }}"></script>
+	<!-- Perfect SCROLLBAR JS-->
+	<script src="{{ asset('admin/assets/plugins/p-scroll/perfect-scrollbar.js') }}"></script>
+	<script src="{{ asset('admin/assets/plugins/p-scroll/pscroll.js') }}"></script>
 
-        
-        <!-- APEXCHART JS -->
-        <script src="{{ asset('admin/assets/js/apexcharts.js') }}"></script>
+	<!-- STICKY JS -->
+	<script src="{{ asset('admin/assets/js/sticky.js') }}"></script>
 
-        <!-- INTERNAL SELECT2 JS -->
-        <script src="{{ asset('admin/assets/plugins/select2/select2.full.min.js') }}"></script>
 
-        <!-- CHART-CIRCLE JS-->
-        <script src="{{ asset('admin/assets/plugins/circle-progress/circle-progress.min.js') }}"></script>
+	<!-- APEXCHART JS -->
+	<script src="{{ asset('admin/assets/js/apexcharts.js') }}"></script>
 
-        <!-- INTERNAL DATA-TABLES JS-->
-        <script src="{{ asset('admin/assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
-        <script src="{{ asset('admin/assets/plugins/datatable/js/dataTables.bootstrap5.js') }}"></script>
-        <script src="{{ asset('admin/assets/plugins/datatable/dataTables.responsive.min.js') }}"></script>
+	<!-- INTERNAL SELECT2 JS -->
+	<script src="{{ asset('admin/assets/plugins/select2/select2.full.min.js') }}"></script>
 
-        <!-- INDEX JS -->
-        <script src="{{ asset('admin/assets/js/index1.js') }}"></script>
-        <script src="{{ asset('admin/assets/js/index.js') }}"></script>
+	<!-- CHART-CIRCLE JS-->
+	<script src="{{ asset('admin/assets/plugins/circle-progress/circle-progress.min.js') }}"></script>
 
-        <!-- Reply JS-->
-		<script src="{{ asset('admin/assets/js/reply.js') }}"></script>
+	<!-- INTERNAL DATA-TABLES JS-->
+	<script src="{{ asset('admin/assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+	<script src="{{ asset('admin/assets/plugins/datatable/js/dataTables.bootstrap5.js') }}"></script>
+	<script src="{{ asset('admin/assets/plugins/datatable/dataTables.responsive.min.js') }}"></script>
 
-        
-        <!-- COLOR THEME JS -->
-        <script src="{{ asset('admin/assets/js/themeColors.js') }}"></script>
+	<!-- INDEX JS -->
+	<script src="{{ asset('admin/assets/js/index1.js') }}"></script>
+	<script src="{{ asset('admin/assets/js/index.js') }}"></script>
 
-        <!-- CUSTOM JS -->
-        <script src="{{ asset('admin/assets/js/custom.js') }}"></script>
+	<!-- Reply JS-->
+	<script src="{{ asset('admin/assets/js/reply.js') }}"></script>
 
-        <!-- SWITCHER JS -->
-        <script src="{{ asset('admin/assets/switcher/js/switcher.js') }}"></script>
-		<!-- DataTables Initialization -->
-		<script>
-			$(document).ready(function () {
-				$('#editable-file-datatable').DataTable({
-					responsive: true
-				});
+
+	<!-- COLOR THEME JS -->
+	<script src="{{ asset('admin/assets/js/themeColors.js') }}"></script>
+
+	<!-- CUSTOM JS -->
+	<script src="{{ asset('admin/assets/js/custom.js') }}"></script>
+
+	<!-- SWITCHER JS -->
+	<script src="{{ asset('admin/assets/switcher/js/switcher.js') }}"></script>
+	<!-- DataTables Initialization -->
+	<script>
+		$(document).ready(function() {
+			$('#editable-file-datatable').DataTable({
+				responsive: true
 			});
-		</script>
-		<!-- JQuery -->
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		});
+	</script>
+	<!-- JQuery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-		<!-- Dropify JS -->
-		<script src="https://cdn.jsdelivr.net/npm/dropify/dist/js/dropify.min.js"></script>
-
-		<script>
-			$(document).ready(function(){
-				// Initialize Dropify
-				$('.dropify').dropify();
-			});
-		</script>
-    </body>
+	<!-- Dropify JS -->
+	<script src="https://cdn.jsdelivr.net/npm/dropify/dist/js/dropify.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			// Initialize Dropify
+			$('.dropify').dropify();
+		});
+	</script>
+</body>
 
 
 <!-- Mirrored from laravel8.spruko.com/noa/index by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 06 May 2023 13:08:40 GMT -->
+
 </html>

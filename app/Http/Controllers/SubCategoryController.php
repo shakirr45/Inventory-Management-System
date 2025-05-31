@@ -2,57 +2,51 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\SubCategory;
 use Illuminate\Validation\Rule;
 
-class CategoryController extends Controller
+class SubCategoryController extends Controller
 {
     //
     public function index()
     {
-        $pageTitle = 'All Categories';
+        $pageTitle = 'All Subcategory';
         $categories = Category::latest()->paginate(5);
-        return view('category.index', compact('pageTitle', 'categories'));
+        $subcategories = SubCategory::with('category')->latest()->paginate(5);
+        return view('sub-category.index', compact('pageTitle', 'categories', 'subcategories'));
     }
-
     public function store(Request $request, $id = 0)
     {
+        // dd($request->all());
         $request->validate([
+            'category_id',
             'name' => [
                 'required',
                 'string',
-                Rule::unique('categories', 'name')->ignore($id),
+                Rule::unique('sub_categories', 'name')->ignore($id),
             ],
         ]);
 
         if ($id > 0) {
             // Update mode
-            $category = Category::findOrFail($id);
+            $subCategory = SubCategory::findOrFail($id);
             $message = 'Category has been updated successfully';
             $status = $request->has('editcatstatus') ? 1 : 0;
         } else {
             // Create mode
-            $category = new Category();
+            $subCategory = new SubCategory();
             $message = 'Category has been created successfully';
             $status = $request->has('status') ? 1 : 0;
         }
 
-        $category->name = $request->name;
-        $category->status = $status;
-        $category->save();
+        $subCategory->category_id = $request->category_id;
+        $subCategory->name = $request->name;
+        $subCategory->status = $status;
+        $subCategory->save();
 
         $notify[] = ['success', $message];
-        return to_route('category.index')->withNotify($notify);
-    }
-
-    public function delete($id)
-    {
-        $category = Category::findOrFail($id);
-        $category->delete();
-
-        toastr()->error('Category deleted successfully!');
-        return redirect()->route('category.index');
+        return to_route('subcategory.index')->withNotify($notify);
     }
 }

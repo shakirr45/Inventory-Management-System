@@ -19,7 +19,7 @@
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <span><strong>Product List</strong></span>
                     @can('product-create')
-                        <a href="{{ route('products.create') }}" class="btn btn-primary">+ Create New Product</a>
+                    <a href="{{ route('products.create') }}" class="btn btn-primary">+ Create New Product</a>
                     @endcan
                 </div>
 
@@ -34,17 +34,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach ($products as $product)
-                                    <tr data-id="{{ $i }}">
+                                @foreach ($products as $product)
+                                <tr data-id="{{ $i }}">
                                     <td>{{ ++$i }}</td>
                                     <td>{{ $product->name }}</td>
                                     <td>{{ $product->detail }}</td>
-                                        <td>
-                                            <a class="btn btn-primary btn-sm text-white" title="Edit">
-                                                <i class="fe fe-edit"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                    <td>
+                                        <a class="btn btn-primary btn-sm text-white" title="Edit">
+                                            <i class="fe fe-edit"></i>
+                                        </a>
+                                    </td>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>
