@@ -36,6 +36,7 @@
                                     <li><a href="{{ route('products.index') }}" class="slide-item">All Products</a></li>
                                     <li><a href="{{ route('category.index') }}" class="slide-item">Categories</a></li>
                                     <li><a href="{{ route('subcategory.index') }}" class="slide-item">Sub Categories</a></li>
+                                    <li><a href="{{ route('subcategory.index') }}" class="slide-item">Product unit</a></li>
                                 </ul>
                             </li>
                             <li class="slide">
