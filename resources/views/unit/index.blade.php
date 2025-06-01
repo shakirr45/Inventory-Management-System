@@ -9,15 +9,15 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                        <li class="breadcrumb-item active">All Category</li>
+                        <li class="breadcrumb-item active">{{ $pageTitle }}</li>
                     </ol>
                 </nav>
             </div>
 
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <strong>Category List</strong>
-                    <a class="btn btn-primary" data-bs-target="#modalInput" data-bs-toggle="modal">+ Add Category</a>
+                    <strong>Unit List</strong>
+                    <a class="btn btn-primary" data-bs-target="#modalInput" data-bs-toggle="modal">+ Add Unit</a>
                 </div>
 
                 <div class="card-body">
@@ -32,7 +32,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($categories as $item)
+                                @foreach ($units as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->name }}</td>
@@ -43,7 +43,7 @@
                                     </td>
                                     <td class="text-end">
                                         <a href="javascript:void(0);"
-                                            class="btn btn-primary btn-sm text-white editCategoryBtn"
+                                            class="btn btn-primary btn-sm text-white editUnitBtn"
                                             data-id="{{ $item->id }}"
                                             data-name="{{ $item->name }}"
                                             data-status="{{ $item->status }}"
@@ -51,7 +51,7 @@
                                             <i class="fe fe-edit"></i> Edit
                                         </a>
 
-                                        <a href="{{ route('category.delete',$item->id) }}" type="button" class="btn btn-danger"><i class="fe fe-trash me-2"></i>Delete</a>
+                                        <a href="{{ route('unit.delete',$item->id) }}" type="button" class="btn btn-danger"><i class="fe fe-trash me-2"></i>Delete</a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -64,19 +64,19 @@
     </div>
 </div>
 
-<!-- Add Category Modal -->
+<!-- Add Unit Modal -->
 <div class="modal fade" id="modalInput">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header justify-content-center">
-                <h6 class="modal-title w-100 text-center">Add New Category</h6>
+                <h6 class="modal-title w-100 text-center">Add New Unit</h6>
             </div>
-            <form action="{{ route('category.store') }}" method="POST">
+            <form action="{{ route('unit.store') }}" method="POST">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
-                        <label>Category Name</label>
-                        <input type="text" class="form-control" name="name" placeholder="Enter Category" required>
+                        <label>Unit Name</label>
+                        <input type="text" class="form-control" name="name" placeholder="Enter Unit" required>
                         <input type="hidden" name="status" value="1">
                     </div>
                 </div>
@@ -89,20 +89,20 @@
     </div>
 </div>
 
-<!-- Edit Category Modal -->
+<!-- Edit Unit Modal -->
 <div class="modal fade" id="modalEdit">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header justify-content-center">
-                <h6 class="modal-title w-100 text-center">Edit Category</h6>
+                <h6 class="modal-title w-100 text-center">Edit Unit</h6>
             </div>
-            <form id="editCategoryForm" method="POST">
+            <form id="editUnitForm" method="POST">
                 @csrf
                 <input type="hidden" name="editcatstatus" value="1">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label>Category Name</label>
-                        <input type="text" class="form-control" name="name" id="editCategoryName" required>
+                        <label>Unit Name</label>
+                        <input type="text" class="form-control" name="name" id="editUnitName" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -118,12 +118,12 @@
 <!-- jQuery script -->
 <script>
     $(document).ready(function() {
-        $('.editCategoryBtn').on('click', function() {
+        $('.editUnitBtn').on('click', function() {
             var id = $(this).data('id');
             var name = $(this).data('name');
 
-            $('#editCategoryName').val(name);
-            $('#editCategoryForm').attr('action', '/category/store/' + id);
+            $('#editUnitName').val(name);
+            $('#editUnitForm').attr('action', '/unit/store/' + id);
         });
     });
 </script>

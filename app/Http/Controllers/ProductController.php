@@ -6,6 +6,8 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use App\Models\Category;
+use App\Models\Subcategory;
 
 class ProductController extends Controller
 {
@@ -43,7 +45,9 @@ class ProductController extends Controller
     public function create(): View
     {
         $pageTitle = 'Create New Product';
-        return view('products.create',compact('pageTitle'));
+        $categories = Category::latest()->get();
+        $subcategories = Subcategory::with('category')->latest()->get();
+        return view('products.create',compact('pageTitle', 'categories','subcategories'));
     }
 
     /**

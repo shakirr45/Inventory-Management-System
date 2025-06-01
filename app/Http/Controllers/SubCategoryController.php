@@ -19,7 +19,6 @@ class SubCategoryController extends Controller
     }
     public function store(Request $request, $id = 0)
     {
-        // dd($request->all());
         $request->validate([
             'category_id',
             'name' => [
@@ -48,5 +47,14 @@ class SubCategoryController extends Controller
 
         $notify[] = ['success', $message];
         return to_route('subcategory.index')->withNotify($notify);
+    }
+
+        public function delete($id)
+    {
+        $subcategory = SubCategory::findOrFail($id);
+        $subcategory->delete();
+
+        toastr()->error('Subcategory deleted successfully!');
+        return redirect()->route('subcategory.index');
     }
 }

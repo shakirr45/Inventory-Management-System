@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\UnitController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,10 +33,16 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('store/{id?}', 'store')->name('store');
         Route::get('category/delete/{id}', 'delete')->name('delete');
     });
-    // Category Management
+    // Subcategory Management
     Route::controller(SubCategoryController::class)->name('subcategory.')->prefix('subcategory')->group(function () {
         Route::get('index', 'index')->name('index');
         Route::post('store/{id?}', 'store')->name('store');
-        // Route::get('category/delete/{id}', 'delete')->name('delete');
+        Route::get('subcategory/delete/{id}', 'delete')->name('delete');
+    });
+    // Unit Management
+    Route::controller(UnitController::class)->name('unit.')->prefix('unit')->group(function () {
+        Route::get('index', 'index')->name('index');
+        Route::post('store/{id?}', 'store')->name('store');
+        Route::get('unit/delete/{id}', 'delete')->name('delete');
     });
 });

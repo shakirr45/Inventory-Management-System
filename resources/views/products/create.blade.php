@@ -39,7 +39,7 @@
                                 <label class="form-label">Product Image</label>
                                 <input
                                     type="file"
-                                    name="image1"
+                                    name="image"
                                     class="dropify"
                                     data-height="200" />
                             </div>
@@ -56,23 +56,25 @@
                                             required>
                                     </div>
                                     <div class="col-md-12">
-                                        <label class="form-label">Category</label>
-                                        <input
-                                            type="text"
-                                            name="category"
-                                            class="form-control"
-                                            placeholder="Enter category">
+                                    <label for="category_id">Category</label>
+                                    <select class="form-select form-select-sm" name="category_id" id="category_id" required>
+                                        <option value="">Select Category</option>
+                                        @foreach($categories as $item)
+                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
                                     <div class="col-md-6">
-                                        <label class="form-label">Sub Category</label>
-                                        <input
-                                            type="text"
-                                            name="sub_category"
-                                            class="form-control"
-                                            placeholder="Enter sub category">
+                                    <label for="subcategory_id">Subcategory</label>
+                                    <select class="form-select form-select-sm" name="subcategory_id" id="subcategory_id" required>
+                                        <option value="">Select Subcategory</option>
+                                        @foreach($subcategories as $item)
+                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">Brand</label>
