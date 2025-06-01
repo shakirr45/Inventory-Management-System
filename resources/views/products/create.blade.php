@@ -55,9 +55,12 @@
                                             placeholder="Enter product name"
                                             required>
                                     </div>
+
+                                </div>
+                                <div class="row mb-3">
                                     <div class="col-md-12">
                                     <label for="category_id">Category</label>
-                                    <select class="form-select form-select-sm" name="category_id" id="category_id" required>
+                                    <select class="form-select form-select" name="category_id" id="category_id" required>
                                         <option value="">Select Category</option>
                                         @foreach($categories as $item)
                                         <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -66,10 +69,10 @@
                                     </div>
                                 </div>
 
-                                <div class="row mb-3">
+                              <div class="row mb-3">
                                     <div class="col-md-6">
-                                    <label for="subcategory_id">Subcategory</label>
-                                    <select class="form-select form-select-sm" name="subcategory_id" id="subcategory_id" required>
+                                    <label for="sub_category_id">Subcategory</label>
+                                    <select class="form-select form-select" name="sub_category_id" id="sub_category_id" required>
                                         <option value="">Select Subcategory</option>
                                         @foreach($subcategories as $item)
                                         <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -77,35 +80,28 @@
                                     </select>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-label">Brand</label>
-                                        <input
-                                            type="text"
-                                            name="brand"
-                                            class="form-control"
-                                            placeholder="Enter brand">
+                                    <label for="brand_id">Brand</label>
+                                    <select class="form-select form-select" name="brand_id" id="brand_id" required>
+                                        <option value="">Select Brand</option>
+                                        @foreach($brands as $item)
+                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
                                     </div>
                                 </div>
 
                                 <!-- Price, Unit, Barcode -->
                                 <div class="row mb-3">
                                     <div class="col-md-6">
-                                        <label class="form-label">Price</label>
-                                        <input
-                                            type="number"
-                                            step="0.01"
-                                            name="price"
-                                            class="form-control"
-                                            placeholder="Enter price">
-                                    </div>
-                                    <div class="col-md-6">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label class="form-label">Unit</label>
-                                                <input
-                                                    type="text"
-                                                    name="unit"
-                                                    class="form-control"
-                                                    placeholder="Enter unit">
+                                            <label for="unit_id">Unit</label>
+                                            <select class="form-select form-select" name="unit_id" id="unit_id" required>
+                                                <option value="">Select Unit</option>
+                                                @foreach($units as $item)
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="form-label">Barcode</label>
@@ -117,14 +113,23 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Price</label>
+                                        <input
+                                            type="number"
+                                            step="0.01"
+                                            name="price"
+                                            class="form-control"
+                                            placeholder="Enter price">
+                                    </div>
                                 </div>
 
-                                <!-- Details textarea moved here -->
+                                <!-- Description textarea moved here -->
                                 <div class="mb-3">
-                                    <label class="form-label">Details</label>
+                                    <label class="form-label">Description</label>
                                     <textarea
                                         class="form-control"
-                                        name="detail"
+                                        name="description"
                                         rows="4"
                                         placeholder="Write product details..."></textarea>
                                 </div>

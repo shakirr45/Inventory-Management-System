@@ -8,6 +8,8 @@ use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use App\Models\Category;
 use App\Models\Subcategory;
+use App\Models\Unit;
+use App\Models\Brand;
 
 class ProductController extends Controller
 {
@@ -47,7 +49,9 @@ class ProductController extends Controller
         $pageTitle = 'Create New Product';
         $categories = Category::latest()->get();
         $subcategories = Subcategory::with('category')->latest()->get();
-        return view('products.create',compact('pageTitle', 'categories','subcategories'));
+        $units = Unit::latest()->get();
+        $brands = Brand::latest()->get();
+        return view('products.create',compact('pageTitle', 'categories','subcategories','units','brands'));
     }
 
     /**

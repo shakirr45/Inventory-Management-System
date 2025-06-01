@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\UnitController;
+use App\Http\Controllers\BrandController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -44,5 +45,11 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('index', 'index')->name('index');
         Route::post('store/{id?}', 'store')->name('store');
         Route::get('unit/delete/{id}', 'delete')->name('delete');
+    });
+    // Brand Management
+    Route::controller(BrandController::class)->name('brand.')->prefix('brand')->group(function () {
+        Route::get('index', 'index')->name('index');
+        Route::post('store/{id?}', 'store')->name('store');
+        Route::get('brand/delete/{id}', 'delete')->name('delete');
     });
 });
