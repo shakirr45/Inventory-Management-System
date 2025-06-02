@@ -25,22 +25,21 @@ class CategoryController extends Controller
                 'string',
                 Rule::unique('categories', 'name')->ignore($id),
             ],
+            'status' => 'required',
         ]);
 
         if ($id > 0) {
             // Update mode
             $category = Category::findOrFail($id);
             $message = 'Category has been updated successfully';
-            $status = $request->has('editcatstatus') ? 1 : 0;
         } else {
             // Create mode
             $category = new Category();
             $message = 'Category has been created successfully';
-            $status = $request->has('status') ? 1 : 0;
         }
 
         $category->name = $request->name;
-        $category->status = $status;
+        $category->status = $request->status; 
         $category->save();
 
         $notify[] = ['success', $message];

@@ -33,7 +33,7 @@
                                 </a>
                                 <ul class="slide-menu">
                                     <li class="side-menu-label1"><a href="javascript:void(0)">Products</a></li>
-                                    <li><a href="{{ route('products.index') }}" class="slide-item">All Products</a></li>
+                                    <li><a href="{{ route('product.index') }}" class="slide-item">All Products</a></li>
                                     <li><a href="{{ route('category.index') }}" class="slide-item">Categories</a></li>
                                     <li><a href="{{ route('subcategory.index') }}" class="slide-item">Sub Categories</a></li>
                                     <li><a href="{{ route('brand.index') }}" class="slide-item">Brands</a></li>
@@ -46,7 +46,7 @@
                                 </a>
                                 <ul class="slide-menu">
                                     <li class="side-menu-label1"><a href="javascript:void(0)">Customers</a></li>
-                                    <li><a href="{{ route('products.index') }}" class="slide-item">All Customers</a></li>
+                                    <li><a href="{{ route('product.index') }}" class="slide-item">All Customers</a></li>
                                 </ul>
                             </li>
                             <li class="slide">
@@ -55,7 +55,7 @@
                                 </a>
                                 <ul class="slide-menu">
                                     <li class="side-menu-label1"><a href="javascript:void(0)">Suppliers</a></li>
-                                    <li><a href="{{ route('products.index') }}" class="slide-item">All Suppliers</a></li>
+                                    <li><a href="{{ route('product.index') }}" class="slide-item">All Suppliers</a></li>
                                 </ul>
                             </li>
 

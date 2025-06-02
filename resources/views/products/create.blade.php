@@ -10,7 +10,7 @@
         <div class="ms-auto pageheader-btn">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
-                    <a href="{{ route('products.index') }}">Products</a>
+                    <a href="{{ route('product.index') }}">Products</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
                     Create
@@ -24,25 +24,25 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <a href="{{ route('products.index') }}" class="btn btn-sm btn-success">
+                    <a href="{{ route('product.index') }}" class="btn btn-sm btn-success">
                         &lt;&lt; Back to List
                     </a>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <!-- Row: Image on left, Product Name and Category side by side on the same line -->
                         <div class="row mb-4">
                             <!-- Left column: Product Image -->
-                            <div class="col-md-4">
+                            {{--<div class="col-md-4">
                                 <label class="form-label">Product Image</label>
                                 <input
                                     type="file"
                                     name="image"
                                     class="dropify"
                                     data-height="200" />
-                            </div>
+                            </div>--}}
                             <!-- Right column: fields -->
                             <div class="col-md-8">
                                 <div class="row mb-3">
@@ -81,7 +81,7 @@
                                     </div>
                                     <div class="col-md-6">
                                     <label for="brand_id">Brand</label>
-                                    <select class="form-select form-select" name="brand_id" id="brand_id" required>
+                                    <select class="form-select form-select" name="brand_id" id="brand_id" >
                                         <option value="">Select Brand</option>
                                         @foreach($brands as $item)
                                         <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -133,6 +133,21 @@
                                         rows="4"
                                         placeholder="Write product details..."></textarea>
                                 </div>
+                                <!-- Status Toggle -->
+                                <div class="mb-4 text-end">
+                                    <label for="status" class="form-label d-block fw-semibold">Status</label>
+                                    <div class="form-check form-switch d-inline-block">
+                                        <input type="hidden" name="status" value="0">
+                                        <input 
+                                            class="form-check-input" 
+                                            type="checkbox" 
+                                            id="status" 
+                                            name="status" 
+                                            value="1" 
+                                            checked>
+                                    </div>
+                                </div>
+
                                 <!-- Submit button -->
                                 <div class="text-end">
                                     <button type="submit"

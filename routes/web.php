@@ -26,8 +26,16 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
-    Route::resource('products', ProductController::class);
+    // Route::resource('products', ProductController::class);
 
+    // Product Management
+    Route::controller(ProductController::class)->name('product.')->prefix('product')->group(function () {
+        Route::get('index', 'index')->name('index');
+        Route::get('create', 'create')->name('create');
+        Route::get('/barcode/{code}', 'generateBarcode');
+        Route::post('store/{id?}', 'store')->name('store');
+        Route::get('product/delete/{id}', 'delete')->name('delete');
+    });
     // Category Management
     Route::controller(CategoryController::class)->name('category.')->prefix('category')->group(function () {
         Route::get('index', 'index')->name('index');

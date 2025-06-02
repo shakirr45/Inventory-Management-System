@@ -6,6 +6,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Picqer\Barcode\BarcodeGeneratorPNG;
 use App\Models\Category;
 use App\Models\Subcategory;
 use App\Models\Unit;
@@ -31,14 +32,18 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(): View
-    {
+    {        
         $pageTitle = 'All Products';
-        $products = Product::latest()->paginate(5);
+        $products = Product::with('category', 'subcategory')->latest()->get();
 
-        return view('products.index', compact('products', 'pageTitle'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('products.index', compact('products', 'pageTitle'));
     }
-
+    public function generateBarcode($code)
+    {
+        $generator = new BarcodeGeneratorPNG();
+        $barcode = $generator->getBarcode($code, $generator::TYPE_CODE_128);
+        return response($barcode)->header('Content-Type', 'image/png');
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -62,15 +67,32 @@ class ProductController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        dd($request->all());
+        // dd($request->all());
         request()->validate([
             'name' => 'required',
-            'detail' => 'required',
+            'category_id' => 'required',
+            'sub_category_id' => 'nullable',
+            'brand_id' => 'nullable',
+            'barcode' => 'nullable',
+            'unit_id' => 'required',
+            'price' => 'required',
+            'description' => 'required',
+            'status' => 'required',
         ]);
 
-        Product::create($request->all());
+        $product = new Product();
+        $product->name              = $request->name;
+        $product->category_id       = $request->category_id;
+        $product->sub_category_id   = $request->sub_category_id;
+        $product->brand_id          = $request->brand_id;
+        $product->unit_id           = $request->unit_id;
+        $product->barcode           = $request->barcode;
+        $product->price             = $request->price;
+        $product->description       = $request->description;
+        $product->status            = $request->status;
+        $product->save();
 
-        return redirect()->route('products.index')
+        return redirect()->route('product.index')
             ->with('success', 'Product created successfully.');
     }
 

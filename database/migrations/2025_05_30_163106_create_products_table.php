@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('sub_category_id')->nullable();
             $table->foreignId('brand_id')->nullable();
             $table->foreignId('unit_id');
-            $table->string('code')->unique();
+            // $table->string('code')->unique();
             $table->decimal('price', 28, 8);
             $table->longText('description')->nullable();
             $table->text('image')->nullable();

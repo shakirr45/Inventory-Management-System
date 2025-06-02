@@ -74,10 +74,24 @@
             <form action="{{ route('category.store') }}" method="POST">
                 @csrf
                 <div class="modal-body">
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label>Category Name</label>
                         <input type="text" class="form-control" name="name" placeholder="Enter Category" required>
-                        <input type="hidden" name="status" value="1">
+                    </div>
+
+                    <!-- Status switch -->
+                    <div class="mb-3 text-end">
+                        <label for="status" class="form-label d-block fw-semibold">Status</label>
+                        <div class="form-check form-switch d-inline-block">
+                            <input type="hidden" name="status" value="0">
+                            <input 
+                                class="form-check-input" 
+                                type="checkbox" 
+                                id="status" 
+                                name="status" 
+                                value="1"
+                                checked>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -89,6 +103,7 @@
     </div>
 </div>
 
+
 <!-- Edit Category Modal -->
 <div class="modal fade" id="modalEdit">
     <div class="modal-dialog modal-dialog-centered">
@@ -98,11 +113,24 @@
             </div>
             <form id="editCategoryForm" method="POST">
                 @csrf
-                <input type="hidden" name="editcatstatus" value="1">
                 <div class="modal-body">
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label>Category Name</label>
                         <input type="text" class="form-control" name="name" id="editCategoryName" required>
+                    </div>
+
+                    <!-- Status switch -->
+                    <div class="mb-3 text-end">
+                        <label for="editStatus" class="form-label d-block fw-semibold">Status</label>
+                        <div class="form-check form-switch d-inline-block">
+                            <input type="hidden" name="status" value="0">
+                            <input 
+                                class="form-check-input" 
+                                type="checkbox" 
+                                id="editStatus" 
+                                name="status" 
+                                value="1">
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -113,7 +141,9 @@
         </div>
     </div>
 </div>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 <!-- jQuery script -->
 <script>
@@ -121,9 +151,17 @@
         $('.editCategoryBtn').on('click', function() {
             var id = $(this).data('id');
             var name = $(this).data('name');
+            var status = $(this).data('status');
 
             $('#editCategoryName').val(name);
             $('#editCategoryForm').attr('action', '/category/store/' + id);
+            
+            // Checkbox checked toggle
+            if (status == 1) {
+                $('#editStatus').prop('checked', true);
+            } else {
+                $('#editStatus').prop('checked', false);
+            }
         });
     });
 </script>

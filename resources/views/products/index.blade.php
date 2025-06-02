@@ -19,7 +19,7 @@
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <span><strong>Product List</strong></span>
                     @can('product-create')
-                    <a href="{{ route('products.create') }}" class="btn btn-primary">+ Create New Product</a>
+                    <a href="{{ route('product.create') }}" class="btn btn-primary">+ Create New Product</a>
                     @endcan
                 </div>
 
@@ -30,15 +30,38 @@
                                 <tr>
                                     <th>SL</th>
                                     <th>Name</th>
+                                    <th>Brand</th>
+                                    <th>Category</th>
+                                    <th>Subcategory</th>
+                                    <th>Barcode</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($products as $product)
-                                <tr data-id="{{ $i }}">
-                                    <td>{{ ++$i }}</td>
-                                    <td>{{ $product->name }}</td>
-                                    <td>{{ $product->detail }}</td>
+                                @foreach ($products as $key => $item)
+                                <tr>
+                                    <td>{{ $key + 1 }}</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->brand->name }}</td>
+                                    <td>{{ $item->category->name }}</td>
+                                    <td>{{ $item->subcategory->name }}</td>
+                                    <td class="text-center">
+                                        @if ($item->barcode)
+                                            <img src="{{ url('product/barcode/' . $item->barcode) }}" alt="Barcode"
+                                                width="170">
+                                        @else
+                                        ----
+                                        @endif
+                                    </td>
+                                    <td>{{ $item->price }}</td>
+                                    <td>
+                                        <span class=" badge bg-{{ $item->status ? 'success' : 'danger' }}">
+                                            {{ $item->status == 1 ? 'Active' : 'Inactive' }}
+                                        </span>
+                                    </td>
+
                                     <td>
                                         <a class="btn btn-primary btn-sm text-white" title="Edit">
                                             <i class="fe fe-edit"></i>
